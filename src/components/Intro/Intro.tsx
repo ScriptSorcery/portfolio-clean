@@ -5,7 +5,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { Badge } from "../ui/badge"
 import { Button } from "../ui/button"
 import {
-    Clock,
     Globe,
     Mail,
     MapPin,
@@ -123,10 +122,17 @@ const Intro = () => {
 
                 <Tooltip>
                     <TooltipTrigger asChild>
-                        <Button className="flex items-center" variant="secondary"><Phone />Contact</Button>
+                        <Button className="flex items-center" variant="secondary" asChild>
+                            <span onClick={() => {
+                                navigator.clipboard.writeText("+91-6371162574")
+                                toast.success("Phone number copied to clipboard!")
+                            }}>
+                                <Phone />Contact
+                            </span>
+                        </Button>
                     </TooltipTrigger>
                     <TooltipContent>
-                        <p>Contact Me</p>
+                        <p>Text / Call</p>
                     </TooltipContent>
                 </Tooltip>
 
