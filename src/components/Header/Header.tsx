@@ -52,7 +52,6 @@ const Header = () => {
 					<a href="#home" className="flex items-center gap-3">
 						<div className="flex flex-col leading-tight">
 							<span className="text-base font-semibold text-slate-900 dark:text-white">Mubashir</span>
-						{/* <span className="text-xs font-medium text-slate-500 dark:text-slate-400">Portfolio</span> */}
 						</div>
 					</a>
 

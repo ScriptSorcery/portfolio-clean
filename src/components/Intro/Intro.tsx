@@ -19,6 +19,7 @@ import {
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
 import { ReactIcon, NextIcon, TailwindIcon, TypeScriptIcon } from "../../shared/icons"
 import resume from "@/shared/Sayed Mubashir Ali Resume.pdf"
+import { toast } from "sonner"
 
 const Intro = () => {
     return (
@@ -73,10 +74,18 @@ const Intro = () => {
                 />
                 <InfoItem icon={<Globe size={16} />} text="mubashir.dev" />
 
-                <InfoItem
-                    icon={<Mail size={16} />}
-                    text="mubashir@example.com"
-                />
+                <span 
+                    onClick={() => {
+                        navigator.clipboard.writeText("ali.mubashir40@gmail.com")
+                        toast.success("Email copied to clipboard!")
+                    }}
+                    className="cursor-pointer"
+                >
+                    <InfoItem
+                        icon={<Mail size={16} />}
+                        text="ali.mubashir40@gmail.com"
+                    />
+                </span>
                 <InfoItem icon={<User size={16} />} text="he / him" />
             </div>
 

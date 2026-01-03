@@ -1,3 +1,4 @@
+import Experience from './components/Experience/Experience'
 import GitHubHeatmap from './components/GitHubHeatmap/GitHubHeatmap'
 import Header from './components/Header/Header'
 import Intro from './components/Intro/Intro'
@@ -20,6 +21,7 @@ function App() {
           {/* <MusicPlayer /> */}
           <GitHubHeatmap data={mockData} year={2025} />
           <TechStack />
+          <Experience />
         </main>
       </div>
     </ThemeProvider>
