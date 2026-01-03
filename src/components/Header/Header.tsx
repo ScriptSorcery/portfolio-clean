@@ -10,6 +10,13 @@ const navLinks: NavLink[] = [
 	{ label: 'About', href: '#about' }
 ]
 
+const smoothScrollTo = (targetId: string) => {
+	const element = document.getElementById(targetId.replace('#', ''))
+	if (element) {
+		element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+	}
+}
+
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [activeHash, setActiveHash] = useState('#home')
@@ -60,6 +67,12 @@ const Header = () => {
 							<a
 								key={link.label}
 								href={link.href}
+								onClick={(e) => {
+									e.preventDefault()
+									smoothScrollTo(link.href)
+									window.history.pushState(null, '', link.href)
+									setActiveHash(link.href)
+								}}
 								className={`nav-link text-sm font-semibold transition ${activeHash === link.href
 										? 'text-slate-900 dark:text-white active'
 										: 'text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white'
@@ -113,7 +126,13 @@ const Header = () => {
 												? 'text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800'
 												: 'text-slate-800 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800'
 											}`}
-										onClick={() => setIsOpen(false)}
+									onClick={(e) => {
+										e.preventDefault()
+										smoothScrollTo(link.href)
+										window.history.pushState(null, '', link.href)
+										setActiveHash(link.href)
+										setIsOpen(false)
+									}}
 									>
 										{link.label}
 									</a>

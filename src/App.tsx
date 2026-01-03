@@ -16,12 +16,14 @@ function App() {
       <div className="min-h-screen bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.18),transparent_25%),_radial-gradient(circle_at_80%_0,rgba(236,72,153,0.16),transparent_22%),_linear-gradient(180deg,#f8fafc,#eef2ff)] text-slate-900">
         <Header />
 
-        <main className="mx-auto flex max-w-4xl flex-col gap-12 px-4 pb-20 pt-16 md:px-6">
+        <main className="mx-auto flex max-w-4xl flex-col gap-12 px-4 pb-20 pt-16 md:px-6" id="home">
           <Intro />
           {/* <MusicPlayer /> */}
           <GitHubHeatmap data={mockData} year={2025} />
           <TechStack />
-          <Experience />
+          <div id="about">
+            <Experience />
+          </div>
         </main>
       </div>
     </ThemeProvider>
