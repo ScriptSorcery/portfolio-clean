@@ -1,6 +1,7 @@
 import GitHubHeatmap from './components/GitHubHeatmap/GitHubHeatmap'
 import Header from './components/Header/Header'
 import Intro from './components/Intro/Intro'
+import TechStack from './components/TechStack/TechStack'
 import { ThemeProvider } from './components/theme-provider'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Intro />
           {/* <MusicPlayer /> */}
           <GitHubHeatmap data={mockData} year={2024} />
+          <TechStack />
         </main>
       </div>
     </ThemeProvider>
