@@ -13,9 +13,12 @@ import {
     User,
     ArrowDownToLine,
     Phone,
+    Linkedin,
+    Github,
 } from "lucide-react"
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
-import { ReactIcon, NextIcon, TailwindIcon, TypeScriptIcon, GitHubIcon, XIcon } from "../../shared/icons"
+import { ReactIcon, NextIcon, TailwindIcon, TypeScriptIcon } from "../../shared/icons"
+import resume from "@/shared/Sayed Mubashir Ali Resume.pdf"
 
 const Intro = () => {
     return (
@@ -92,7 +95,11 @@ const Intro = () => {
             <div className="flex flex-wrap gap-3">
                 <Tooltip>
                     <TooltipTrigger asChild>
-                        <Button className="flex items-center" variant="secondary"><ArrowDownToLine className="mr-1" />Resume</Button>
+                        <Button className="flex items-center" variant="secondary" asChild>
+                            <a href={resume} download="Sayed_Mubashir_Ali_Resume.pdf">
+                                <ArrowDownToLine />Resume
+                            </a>
+                        </Button>
                     </TooltipTrigger>
                     <TooltipContent>
                         <p>Download Resume</p>
@@ -101,7 +108,7 @@ const Intro = () => {
 
                 <Tooltip>
                     <TooltipTrigger asChild>
-                        <Button className="flex items-center" variant="secondary"><Phone className="mr-1" />Contact</Button>
+                        <Button className="flex items-center" variant="secondary"><Phone />Contact</Button>
                     </TooltipTrigger>
                     <TooltipContent>
                         <p>Contact Me</p>
@@ -110,8 +117,10 @@ const Intro = () => {
 
                 <Tooltip>
                     <TooltipTrigger asChild>
-                        <Button variant="secondary" className="gap-2">
-                            <GitHubIcon />
+                        <Button variant="secondary" className="gap-2" asChild>
+                            <a href="https://github.com/hulkmania40" target="_blank" rel="noopener noreferrer">
+                                <Github />
+                            </a>
                         </Button>
                     </TooltipTrigger>
                     <TooltipContent>
@@ -121,19 +130,23 @@ const Intro = () => {
 
                 <Tooltip>
                     <TooltipTrigger asChild>
-                        <Button variant="secondary" className="gap-2">
-                            <XIcon />
+                        <Button variant="secondary" className="gap-2" asChild>
+                            <a href="https://www.linkedin.com/in/sayed-mubashir-ali-0709aa193/" target="_blank" rel="noopener noreferrer">
+                                <Linkedin />
+                            </a>
                         </Button>
                     </TooltipTrigger>
                     <TooltipContent>
-                        <p>X Handle</p>
+                        <p>LinkedIn</p>
                     </TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
                     <TooltipTrigger asChild>
-                        <Button variant="secondary" className="gap-2">
-                            <Mail size={16} />
+                        <Button variant="secondary" className="gap-2" asChild>
+                            <a href="mailto:ali.mubashir40@gmail.com" target="_blank" rel="noopener noreferrer">
+                                <Mail size={16} />
+                            </a>
                         </Button>
                     </TooltipTrigger>
                     <TooltipContent>

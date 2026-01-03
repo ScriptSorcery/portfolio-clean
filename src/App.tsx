@@ -6,7 +6,7 @@ import { ThemeProvider } from './components/theme-provider'
 
 function App() {
   const mockData = Array.from({ length: 300 }).map((_, i) => ({
-    date: `2024-${String(Math.floor(i / 25) + 1).padStart(2, "0")}-${String((i % 28) + 1).padStart(2, "0")}`,
+    date: `2025-${String(Math.floor(i / 25) + 1).padStart(2, "0")}-${String((i % 28) + 1).padStart(2, "0")}`,
     count: Math.floor(Math.random() * 15),
   }))
   return (
@@ -18,7 +18,7 @@ function App() {
         <main className="mx-auto flex max-w-4xl flex-col gap-12 px-4 pb-20 pt-16 md:px-6">
           <Intro />
           {/* <MusicPlayer /> */}
-          <GitHubHeatmap data={mockData} year={2024} />
+          <GitHubHeatmap data={mockData} year={2025} />
           <TechStack />
         </main>
       </div>
