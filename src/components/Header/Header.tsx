@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 
 type NavLink = {
 	label: string
@@ -12,9 +12,42 @@ const navLinks: NavLink[] = [
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false)
+	const [activeHash, setActiveHash] = useState('#home')
+
+	useEffect(() => {
+		const handleHashChange = () => {
+			setActiveHash(window.location.hash || '#home')
+		}
+		window.addEventListener('hashchange', handleHashChange)
+		handleHashChange()
+		return () => window.removeEventListener('hashchange', handleHashChange)
+	}, [])
 
 	return (
-		<header className="sticky top-0 z-50 border-b border-white/40 bg-white/70 backdrop-blur-xl shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] supports-[backdrop-filter]:bg-white/60 dark:border-slate-800/60 dark:bg-slate-900/70 dark:supports-[backdrop-filter]:bg-slate-900/60">
+		<Fragment>
+			<style>{`
+				.nav-link {
+					position: relative;
+					display: inline-block;
+				}
+				.nav-link::after {
+					content: '';
+					position: absolute;
+					bottom: -2px;
+					left: 0;
+					width: 0;
+					height: 2px;
+					background-color: currentColor;
+					transition: width 0.3s ease;
+				}
+				.nav-link:hover::after {
+					width: 100%;
+				}
+				.nav-link.active::after {
+					width: 100%;
+				}
+			`}</style>
+			<header className="sticky top-0 z-50 border-b border-white/40 bg-white/70 backdrop-blur-xl shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] supports-[backdrop-filter]:bg-white/60 dark:border-slate-800/60 dark:bg-slate-900/70 dark:supports-[backdrop-filter]:bg-slate-900/60">
 			<div className="mx-auto flex max-w-2xl items-center justify-between gap-4 px-4 py-3 md:px-6">
 				<a href="#home" className="flex items-center gap-3">
 					<span className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-900 text-sm font-semibold uppercase tracking-[0.12em] text-white shadow-lg shadow-slate-900/25">
@@ -31,7 +64,11 @@ const Header = () => {
 						<a
 							key={link.label}
 							href={link.href}
-							className="text-sm font-semibold text-slate-700 transition hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
+							className={`nav-link text-sm font-semibold transition ${
+								activeHash === link.href
+									? 'text-slate-900 dark:text-white active'
+									: 'text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white'
+							}`}
 						>
 							{link.label}
 						</a>
@@ -78,17 +115,22 @@ const Header = () => {
 							<a
 								key={link.label}
 								href={link.href}
-								className="rounded-lg px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800"
+								className={`nav-link rounded-lg px-3 py-2 text-sm font-semibold transition ${
+									activeHash === link.href
+										? 'text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800'
+										: 'text-slate-800 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800'
+								}`}
 								onClick={() => setIsOpen(false)}
 							>
 								{link.label}
 							</a>
 						))}
 					</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		</header>
+			</header>
+		</Fragment>
 	)
 }
 
