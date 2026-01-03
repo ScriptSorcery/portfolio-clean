@@ -1,5 +1,6 @@
 import Header from './components/Header/Header'
 import Intro from './components/Intro/Intro'
+import MusicPlayer from './components/MusicPlayer/MusicPlayer'
 import { ThemeProvider } from './components/theme-provider'
 
 const features = [
@@ -44,6 +45,7 @@ function App() {
 
         <main className="mx-auto flex max-w-2xl flex-col gap-12 px-4 pb-20 pt-16 md:px-6">
           <Intro />
+          <MusicPlayer />
         </main>
       </div>
     </ThemeProvider>
