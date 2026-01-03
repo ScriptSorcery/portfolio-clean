@@ -72,7 +72,14 @@ const Intro = () => {
                     icon={<MapPin size={16} />}
                     text="Bangalore, Karnataka, India"
                 />
-                <InfoItem icon={<Globe size={16} />} text="mubashir.dev" />
+                <span 
+                    onClick={() => {
+                        window.open("https://mubashir-ali-portfolio.netlify.app", "_blank")
+                    }}
+                    className="cursor-pointer"
+                >
+                    <InfoItem icon={<Globe size={16} />} text="https://mubashir-ali-portfolio.netlify.app" />
+                </span>
 
                 <span 
                     onClick={() => {
