@@ -66,7 +66,6 @@ const Intro = () => {
             {/* Info grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-10 text-sm text-slate-300">
                 <InfoItem icon={<Code2 size={16} />} text="Full-Stack Developer" />
-                <InfoItem icon={<Clock size={16} />} text="11:37 AM // same time" />
 
                 <InfoItem
                     icon={<MapPin size={16} />}

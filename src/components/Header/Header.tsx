@@ -56,9 +56,16 @@ const Header = () => {
 			`}</style>
 			<header className="sticky top-0 z-50 border-b border-white/40 bg-white/70 backdrop-blur-xl shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] supports-[backdrop-filter]:bg-white/60 dark:border-slate-800/60 dark:bg-slate-900/70 dark:supports-[backdrop-filter]:bg-slate-900/60">
 				<div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-4 py-3 md:px-6">
-					<a href="#home" className="flex items-center gap-3">
+					<a href="#home" className="flex items-center gap-3"
+						onClick={(e) => {
+									e.preventDefault()
+									smoothScrollTo('#home')
+									window.history.pushState(null, '', '#home')
+									setActiveHash('#home')
+						}}
+					>
 						<div className="flex flex-col leading-tight">
-							<span className="text-base font-semibold text-slate-900 dark:text-white">Mubashir</span>
+							<span className="text-base font-semibold text-slate-900 dark:text-white">Mubashir's Portfolio</span>
 						</div>
 					</a>
 
